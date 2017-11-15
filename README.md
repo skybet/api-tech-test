@@ -24,17 +24,20 @@ Show how you would make this system easy to support. Are there certain parts of 
 
 How would you progress the artifact you’ve produced into production? What would your artifact be? Why would it be advantageous to automate this progress?
 
+_For bonus points, can you deliver a working API endpoint?_
+
 ## The Deliverable
 
-* A git bundled repository showing your commit history:
+Replace the contents of this README.md with:
 
-        git bundle create <yourname>.bundle --all --branches
+  1. A covering note explaining the technology choices you have made.
+  1. Any instructions required to run your solution and tests in a Linux environment.
 
-* A covering note explaining the technology choices you have made.
-* Any instructions required to run your solution and tests in a Linux environment.
-* _For bonus points, can you deliver a working API endpoint._
+Email as an attachment or a link the git bundled repository showing your commit history with all your commits on the master branch:
 
-## Assessment Policy
+        git bundle create <anything>.bundle --all --branches
+
+## Equality & Diversity
 
 We consider all candidates equally, fairly and without bias.  To that end, we ask that you do not leave any personally identifying information in your submission (such as your name within an author field or file, or in use as test data).  We run all VCS-based submissions through an anonymiser before assessment, so that there is no identifying information in the commit history, but this will only remove references in the committing author and email address, not deep in the code submitted.
 
