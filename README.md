@@ -26,12 +26,16 @@ How would you progress the artifact you’ve produced into production? What woul
 
 ## The Deliverable
 
-* A bundled/archived repository showing your commit history. Git is preferred, but any VCS is fine. Git example: 
+* A git bundled repository showing your commit history:
 
         git bundle create <yourname>.bundle --all --branches
 
 * A covering note explaining the technology choices you have made.
 * Any instructions required to run your solution and tests in a Linux environment.
 * _For bonus points, can you deliver a working API endpoint._
+
+## Assessment Policy
+
+We consider all candidates equally, fairly and without bias.  To that end, we ask that you do not leave any personally identifying information in your submission (such as your name within an author field or file, or in use as test data).  We run all VCS-based submissions through an anonymiser before assessment, so that there is no identifying information in the commit history, but this will only remove references in the committing author and email address, not deep in the code submitted.
 
 [1]: https://en.wikipedia.org/wiki/Roulette
