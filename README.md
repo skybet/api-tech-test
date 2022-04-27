@@ -1,70 +1,27 @@
-# SB&G API Tech Test
+# github.com/amritabindukalpa/sbg-api
 
-## Introduction
+The bets are placed as parameters to the api. At the moment it allows for 3 types of bets to be placed: - number,  odd or even (parity) and the colour of the resulting number
 
-Welcome to the Sky Betting & Gaming Technical Test!
+e.g. http://localhost:8080/placebets/?n=29&c=red&p=odd
 
-We hope that you find this exercise fun and interesting. There are no trick questions; we want to see your solution to a
-simple problem with well thought-out and well-structured code. We realise that there are a lot of topics in the brief
-and that you may not have the experience or time to complete them all.
+The result for this is a direct display of the text message whether the user has won or lost a particular category of bet. It also displays the number which was the outcome of the simulated spin of the roulette.
 
-There is no strict time limit on how long you spend on the test, but we recommend you spend no longer than 3 hours on
-it.
+The main function invokes the handlers. There are 3 models at play, bets, result and winning. The handler creates a bet and a result. These are passed as parameters to the betresults package which determines a win or loss.
+The determinator module determines the qualities of the generated number, whether its odd/even, its colour etc.
+The generator module generates a random number. It can be parameterised to generate the number within a limit.
 
-When you've produced something you're proud of, send it to us (see [Submission](#Submission)). We may then invite you to
-an interview. In this interview you'll discuss your work, so it's worth considering how you'd improve the application
-further, even if you didn't have time to do it.
+To run the application :-
 
-## The Brief
+1. Extract the repository git clone <bundle-file-directory>/sbg-api.bundle <directory-to-extract-to>
+2. Open the folder <directory-to-extract-to> in VS Code
+3. Start a new terminal( Ctrl + Shift + ')
+4. Run docker-compose up
+5. Browse to http://localhost:8080/placebets/?n=29&c=red&p=odd with the parameters with n, c and p being changed
 
-### Initial considerations
+Things I would have liked to explore :-
 
-Our product team would like you to help us build a new [roulette][1] platform. Currently all the different variations of
-roulette work in different ways, some with more business logic in the front end than is preferred. The product team
-aspire to have a single roulette platform which they can concentrate their focus on.
-
-For this technical test we would like you to create a roulette API. This will be an API that receives requests from a
-user, simulates a game of roulette, and returns the results. A front end user interface is not required, neither is any
-consideration of any services which you might expect to be shared; examples of these might be account verification or
-game history. If you do want to include something like this in your code, please write against a stub - there is
-certainly no need to write a full implementation.
-
-We’d like you to consider:
-
-- How bets are placed, how a win or a loss is communicated, how winnings will be shown. Does your implementation allow
-  for single bets, colour bets, odd/even bets, etc.?
-- What API methods would be useful to other teams writing calling code (how you can make the API easy to use, is each
-  method doing what someone else would expect it to do?).
-- Testing and maintainability - you should consider what testing is appropriate.
-
-### Further considerations
-
-The expectation from the product team is that we produce a fully working system as soon as possible, then continue to
-add features. We hope that you will think about this expectation as you work.
-
-- As you add more features you might want to consider how they would be rolled out into production. Would your design
-  easily allow feature toggles to be implemented?
-- Could you easily load test your system?
-- Are there certain parts of the system you'd like to monitor? How would you monitor them?
-- How would you deploy your system to an environment? Why would it be advantageous to automate this progress?
-
-## Submission
-
-Replace the contents of this README.md with:
-
-1. A covering note explaining the technology choices you have made.
-1. Any instructions required to run your solution and tests in a Linux/Mac environment.
-
-Email your SBG recruitment contact with the Git bundled repository as an attachment, showing your commit history with
-all features on the principal branch:
-
-        git bundle create <anything>.bundle --all --branches
-
-## Equality & Diversity
-
-We consider all candidates equally, fairly and without bias. More information can be found on
-the [SBG Careers website][2].
-
-[1]: https://en.wikipedia.org/wiki/Roulette
-
-[2]: https://www.skybetcareers.com
+1. I would have liked to implemented more error handling in the application and input validation in the application
+2. I would have liked to explore having middleware for logging application flow
+3. The application takes the input parameters as simple string. I would have liked to explore json objects
+4. I have also attempted to create another api which will take monies on the bets and generate the output
+e.g. http://localhost:8080/betswithamount/ This api would take a json object as parameter which would be the user input for all probable bets with a money associated with it. 
