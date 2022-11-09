@@ -1,6 +1,6 @@
 package org.fanduel.services;
 
-import org.fanduel.models.Bet;
+import org.fanduel.models.bet.Bet;
 import org.fanduel.models.GameRequest;
 import org.fanduel.models.GameResponse;
 import org.fanduel.models.Stake;
@@ -18,9 +18,7 @@ public class DefaultRouletteEngine implements RouletteEngine {
     @Override
     public GameResponse playGame(GameRequest gameRequest) {
         int numberSpinned = rouletteSpin();
-        numberSpinned = 5;
-
-        return new GameResponse(calculateAmountWon(gameRequest.stakes, numberSpinned), numberSpinned);
+        return new GameResponse(calculateAmountWon(gameRequest.getStakes(), numberSpinned), numberSpinned);
     }
 
     public BigDecimal calculateAmountWon(List<Stake> stakes, int spinNumber) {

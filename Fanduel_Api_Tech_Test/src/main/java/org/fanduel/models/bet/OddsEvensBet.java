@@ -1,4 +1,4 @@
-package org.fanduel.models;
+package org.fanduel.models.bet;
 
 public class OddsEvensBet implements Bet {
     public boolean odds;
@@ -13,5 +13,10 @@ public class OddsEvensBet implements Bet {
         if(!odds && remainder == 0)
             return true;
         return false;
+    }
+
+    @Override
+    public boolean validate() {
+        return true;
     }
 }

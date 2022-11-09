@@ -1,4 +1,4 @@
-package org.fanduel.models;
+package org.fanduel.models.bet;
 
 public class ColumnBet implements Bet {
     public int bottomNumber;
@@ -15,5 +15,10 @@ public class ColumnBet implements Bet {
         if(bottomNumber == 36 && remainder == 0)
             return true;
         return false;
+    }
+
+    @Override
+    public boolean validate() {
+        return bottomNumber == 34 || bottomNumber == 35 || bottomNumber == 36;
     }
 }

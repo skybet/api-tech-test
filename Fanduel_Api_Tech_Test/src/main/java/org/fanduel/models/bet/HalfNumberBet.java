@@ -1,4 +1,4 @@
-package org.fanduel.models;
+package org.fanduel.models.bet;
 
 public class HalfNumberBet implements Bet {
     public boolean firstHalf;
@@ -12,5 +12,10 @@ public class HalfNumberBet implements Bet {
         if( !firstHalf && numberSpinned >=19)
             return true;
         return false;
+    }
+
+    @Override
+    public boolean validate() {
+        return true;
     }
 }

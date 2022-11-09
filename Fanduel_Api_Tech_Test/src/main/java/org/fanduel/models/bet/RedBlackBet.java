@@ -1,4 +1,4 @@
-package org.fanduel.models;
+package org.fanduel.models.bet;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,5 +17,10 @@ public class RedBlackBet implements Bet {
         if (!reds && !redNumbers.contains(numberSpinned))
             return true;
         return false;
+    }
+
+    @Override
+    public boolean validate() {
+        return true;
     }
 }

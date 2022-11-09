@@ -3,10 +3,11 @@ package org.fanduel.controllers;
 import org.fanduel.models.GameRequest;
 import org.fanduel.models.GameResponse;
 import org.fanduel.services.RouletteEngine;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpStatusCodeException;
+import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/roulette/api/v1")
@@ -18,8 +19,10 @@ public class RouletteController {
         this.rouletteEngine = rouletteEngine;
     }
 
-    @GetMapping(path = "stake")
+    @PostMapping(path = "play")
     public GameResponse playGame (@RequestBody GameRequest gameRequest) {
+        if(!gameRequest.validate())
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         return rouletteEngine.playGame(gameRequest);
     }
 }

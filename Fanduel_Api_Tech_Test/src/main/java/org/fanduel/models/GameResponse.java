@@ -3,9 +3,18 @@ package org.fanduel.models;
 import java.math.BigDecimal;
 
 public class GameResponse {
-    private final BigDecimal amountWon;
-    private final int spinNumber;
+    public BigDecimal amountWon;
+    public int spinNumber;
 
+    public BigDecimal getAmountWon() {
+        return amountWon;
+    }
+
+    public int getSpinNumber() {
+        return spinNumber;
+    }
+
+    public GameResponse() {}
 
     public GameResponse(BigDecimal amountWon, int spinNumber) {
         this.amountWon = amountWon;

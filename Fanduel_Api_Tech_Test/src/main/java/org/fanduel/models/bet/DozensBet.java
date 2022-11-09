@@ -1,4 +1,4 @@
-package org.fanduel.models;
+package org.fanduel.models.bet;
 
 public class DozensBet implements Bet {
     public int firstNumber;
@@ -14,5 +14,10 @@ public class DozensBet implements Bet {
         if (firstNumber == 25 && numberSpinned >= 25 && numberSpinned <=36)
             return true;
         return false;
+    }
+
+    @Override
+    public boolean validate() {
+        return firstNumber == 1 || firstNumber == 13 || firstNumber == 25;
     }
 }
