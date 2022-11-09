@@ -1,0 +1,17 @@
+.project
+.settings
+.classpath
+bin
+target
+.DS_Store
+
+# intellij
+*.iml
+.idea/
+*.versionsBackup
+
+# Gradle
+.gradle/
+build/
+out/
+tmp/
