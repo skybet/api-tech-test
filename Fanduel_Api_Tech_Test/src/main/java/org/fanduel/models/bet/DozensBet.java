@@ -1,7 +1,11 @@
 package org.fanduel.models.bet;
 
-public class DozensBet implements Bet {
+public class DozensBet extends Bet {
     public int firstNumber;
+
+    public DozensBet() {
+        super(2);
+    }
 
     @Override
     public boolean doesWin(int numberSpinned) {
@@ -18,6 +22,6 @@ public class DozensBet implements Bet {
 
     @Override
     public boolean validate() {
-        return firstNumber == 1 || firstNumber == 13 || firstNumber == 25;
+        return super.validate() && (firstNumber == 1 || firstNumber == 13 || firstNumber == 25);
     }
 }

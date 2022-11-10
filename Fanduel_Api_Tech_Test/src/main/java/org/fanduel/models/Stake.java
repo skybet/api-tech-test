@@ -2,12 +2,9 @@ package org.fanduel.models;
 
 import org.fanduel.models.bet.*;
 
-import java.math.BigDecimal;
-
 public class Stake {
-    public BigDecimal amount;
     public StakeType stakeType;
-    public SingleBet singleNumber;
+    public SingleBet singleNumberBet;
     public SplitBet splitBet;
     public StreetBet streetBet;
     public SquareBet squareBet;
@@ -20,12 +17,9 @@ public class Stake {
     public HalfNumberBet halfNumberBet;
 
     public boolean validate() {
-        if (amount == null || amount.longValue() <= 0)
-            return false;
-
         return switch (stakeType) {
 
-            case SINGLE -> singleNumber != null && singleNumber.validate();
+            case SINGLE -> singleNumberBet != null && singleNumberBet.validate();
             case SPLIT -> splitBet != null && splitBet.validate();
             case STREET -> streetBet != null && streetBet.validate();
             case SQUARE -> squareBet != null && squareBet.validate();

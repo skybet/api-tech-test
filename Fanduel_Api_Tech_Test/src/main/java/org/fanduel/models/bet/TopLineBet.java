@@ -1,6 +1,10 @@
 package org.fanduel.models.bet;
 
-public class TopLineBet implements Bet {
+public class TopLineBet extends Bet {
+    public TopLineBet() {
+        super(6);
+    }
+
     @Override
     public boolean doesWin(int numberSpinned) {
         if(numberSpinned == 37 || numberSpinned == 0)
@@ -10,6 +14,6 @@ public class TopLineBet implements Bet {
 
     @Override
     public boolean validate() {
-        return true;
+        return super.validate();
     }
 }

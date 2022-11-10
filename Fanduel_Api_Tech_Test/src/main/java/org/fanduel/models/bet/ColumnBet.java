@@ -1,7 +1,11 @@
 package org.fanduel.models.bet;
 
-public class ColumnBet implements Bet {
+public class ColumnBet extends Bet {
     public int bottomNumber;
+
+    public ColumnBet() {
+        super(2);
+    }
 
     @Override
     public boolean doesWin(int numberSpinned) {
@@ -19,6 +23,6 @@ public class ColumnBet implements Bet {
 
     @Override
     public boolean validate() {
-        return bottomNumber == 34 || bottomNumber == 35 || bottomNumber == 36;
+        return super.validate() && (bottomNumber == 34 || bottomNumber == 35 || bottomNumber == 36);
     }
 }

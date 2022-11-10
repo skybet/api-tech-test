@@ -1,7 +1,11 @@
 package org.fanduel.models.bet;
 
-public class OddsEvensBet implements Bet {
+public class OddsEvensBet extends Bet {
     public boolean odds;
+
+    public OddsEvensBet() {
+        super(1);
+    }
 
     @Override
     public boolean doesWin(int numberSpinned) {
@@ -17,6 +21,6 @@ public class OddsEvensBet implements Bet {
 
     @Override
     public boolean validate() {
-        return true;
+        return super.validate();
     }
 }

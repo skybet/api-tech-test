@@ -1,7 +1,11 @@
 package org.fanduel.models.bet;
 
-public class SquareBet implements Bet {
+public class SquareBet extends Bet {
     public int topLeftNumber;
+
+    public SquareBet() {
+        super(8);
+    }
 
     @Override
     public boolean doesWin(int numberSpinned) {
@@ -12,6 +16,6 @@ public class SquareBet implements Bet {
 
     @Override
     public boolean validate() {
-        return topLeftNumber % 3 != 0 && 1 <= topLeftNumber && topLeftNumber <= 32;
+        return super.validate() && topLeftNumber % 3 != 0 && 1 <= topLeftNumber && topLeftNumber <= 32;
     }
 }

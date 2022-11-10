@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/roulette/api/v1")
 public class RouletteController {
@@ -20,9 +22,14 @@ public class RouletteController {
     }
 
     @PostMapping(path = "play")
-    public GameResponse playGame (@RequestBody GameRequest gameRequest) {
+    public GameResponse playGame (@RequestBody GameRequest gameRequest, @RequestParam Optional<Integer> forcedSpinNumber) {
+
         if(!gameRequest.validate())
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        return rouletteEngine.playGame(gameRequest);
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Game Request malformed");
+
+        if(forcedSpinNumber.isPresent() && (forcedSpinNumber.get() < 0 || forcedSpinNumber.get() > 37))
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Forced spin number must be between 0 -37");
+
+        return rouletteEngine.playGame(gameRequest, forcedSpinNumber.orElse(null));
     }
 }

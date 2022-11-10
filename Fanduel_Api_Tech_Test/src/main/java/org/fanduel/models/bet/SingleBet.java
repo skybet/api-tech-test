@@ -1,7 +1,14 @@
 package org.fanduel.models.bet;
 
-public class SingleBet implements Bet {
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(as = SingleBet.class)
+public class SingleBet extends Bet {
     public int numberChosen;
+
+    SingleBet() {
+        super(35);
+    }
 
     @Override
     public boolean doesWin(int numberSpinned) {
@@ -10,6 +17,6 @@ public class SingleBet implements Bet {
 
     @Override
     public boolean validate() {
-        return 0 <= numberChosen && numberChosen <= 37;
+        return super.validate() && 0 <= numberChosen && numberChosen <= 37;
     }
 }

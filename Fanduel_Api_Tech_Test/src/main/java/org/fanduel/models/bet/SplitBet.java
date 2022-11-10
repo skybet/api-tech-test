@@ -1,8 +1,12 @@
 package org.fanduel.models.bet;
 
-public class SplitBet implements Bet {
+public class SplitBet extends Bet {
     public int firstNumber;
     public int secondNumber;
+
+    public SplitBet() {
+        super(17);
+    }
 
     @Override
     public boolean doesWin(int numberSpinned) {
@@ -11,6 +15,6 @@ public class SplitBet implements Bet {
 
     @Override
     public boolean validate() {
-        return 1 <= firstNumber && firstNumber <= 37 && 1 <= secondNumber && secondNumber <= 37;
+        return super.validate() && 1 <= firstNumber && firstNumber <= 37 && 1 <= secondNumber && secondNumber <= 37;
     }
 }

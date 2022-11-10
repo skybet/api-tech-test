@@ -1,7 +1,11 @@
 package org.fanduel.models.bet;
 
-public class StreetBet implements Bet {
+public class StreetBet extends Bet {
     public int lastRowNumber;
+
+    public StreetBet() {
+        super(11);
+    }
 
     @Override
     public boolean doesWin(int numberSpinned) {
@@ -12,6 +16,6 @@ public class StreetBet implements Bet {
 
     @Override
     public boolean validate() {
-        return lastRowNumber % 3 == 0 && 1 <= lastRowNumber && lastRowNumber <= 36;
+        return super.validate() && lastRowNumber % 3 == 0 && 1 <= lastRowNumber && lastRowNumber <= 36;
     }
 }
